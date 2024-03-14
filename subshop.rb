@@ -4,7 +4,7 @@ class Subshop
   attr_reader :order_ready_time
 
   def initialize
-    @name = "No orders in yet"
+    @name = ""
     @order = []
     @order_ready_time = nil
   end
@@ -245,31 +245,32 @@ class Subshop
 
   def set_order_ready_time
     @order_ready_time = Time.now + 30 #sec
-    return "#{@order_ready_time}"
   end 
 
   def order_ready?(name)      #gets name on order then says if order is ready or not (boolean)
     if @order_ready_time == nil
       puts "****Please place a order first****"
+      run
     elsif name == @name    
         t = ""
         if Time.now < @order_ready_time
-          t = Time.at(ready.to_i - Time.now.to_i)
-          time = t
-          p t.strftime('%H:%M:%S')
+          t = Time.at(@order_ready_time.to_i - Time.now.to_i)
+          t = t.strftime('%H:%M:%S')
+          puts "\n\nYou have #{t} left"
           sleep 1
-          return "Your order will not be ready until #{@order_ready_time} you still have #{1} left"
+          run
         else
-          return "Your order is ready" 
+          puts "\n\nYour order is ready!" 
+          run
         end
     else
       puts "****We have no order under the name #{name}****"
+      run
     end
   end
 
-  
 
   def exit      #stops program
-    puts "\n\nBye, have a nice day!"
+    puts "\n\nBye, have a nice day!\n\n"
   end
 end
