@@ -209,6 +209,7 @@ class Subshop
     answer = gets.chomp.to_i
     case answer
     when 1
+      set_order_ready_time
       puts "\n\nAwesome your order was sent to the kitchen.\nIt will be ready at #{@order_ready_time}"
     else
       puts "\n\nWould you like us to retake your order?"
@@ -223,7 +224,6 @@ class Subshop
         "Sorry for the error. Have a nice day."  
       end 
     end  
-
   end  
 
   def repeat_order(name)      #gets name on order then prints @order
@@ -235,20 +235,24 @@ class Subshop
     end  
   end  
 
-  def order_ready?(name)      #gets name on order then says if order is ready or not (boolean)
+  def set_order_ready_time
+    @order_ready_time == Time.now + 30
+  end 
 
+  def order_ready?(name)      #gets name on order then says if order is ready or not (boolean)
 =begin
-      ready = Time.now + 30 #sec
-        while Time.now < ready
-          t = Time.at(ready.to_i - Time.now.to_i)
+      @order_ready_time
+        while Time.now < @order_ready_time
+          t = Time.at(@order_ready_time.to_i - Time.now.to_i)
           p t.strftime('%H:%M:%S')
           sleep 1
         end
 =end 
 
     puts "Searching order name..."
-   
   end
+
+  
 
   def exit      #stops program
     puts "\n\nBye, have a nice day!"
