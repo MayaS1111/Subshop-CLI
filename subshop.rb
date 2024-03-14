@@ -86,7 +86,7 @@ class Subshop
         @order.push("No Protein")
       end  
 
-      puts "Would you like to add chedder cheese?"
+      puts "\n\nWould you like to add chedder cheese?"
       puts "1 = Yes"
       puts "2 = No"
       puts "Please enter a corresponding number:"
@@ -98,7 +98,7 @@ class Subshop
         @order.push("No Cheese")
       end  
 
-      puts "What veggies would you like to add?"
+      puts "\n\nWhat veggies would you like to add?"
       puts "1 = Lettuce"
       puts "2 = Tomato"
       puts "3 = Onion"
@@ -162,15 +162,26 @@ class Subshop
       end
       #puts "1:#{count1}, 2:#{count2}, 3:#{count3}, 4:#{count4}, 5:#{count5}, 6:#{count6}, 7:#{count7}, 8:#{count8}, 9:#{count9}"
       puts "Order: #{@order}"
-      
 
+      puts "\n\nWould you like to add a drink?"
+      puts "1 = Yes"
+      puts "2 = No"
+      puts "Please enter a corresponding number:"
+      answer = gets.chomp.to_i
+
+      if answer == 1
+        add_drink
+      else  
+        order_correct?
+      end
   end
   
   def add_drink      #stores custumer drink order in @order
+    
   end
 
   def order_correct?      #gets name on order then prints @order
-    puts "Your order if: \n #{@order}"
+    puts "\n\nYour order is: \n #{@order}"
     puts "\n\nIs your order correct?"
     puts "1 = Yes"
     puts "2 = No"
@@ -178,14 +189,19 @@ class Subshop
     answer = gets.chomp.to_i
     case answer
     when 1
-      puts "\n\nAwsame your order was sent to the kitchen.\nIt will be ready at #{@order_ready_time}"
+      puts "\n\nAwesome your order was sent to the kitchen.\nIt will be ready at #{@order_ready_time}"
     else
       puts "\n\nWould you like us to retake your order?"
       puts "1 = Yes"
       puts "2 = No"
       puts "Please enter a corresponding number:"
       answer = gets.chomp.to_i
-      case answer
+      if answer == 1
+        @order = []
+        place_order
+      else
+        "Sorry for the error. Have a nice day."  
+      end 
     end  
 
   end  
