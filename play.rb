@@ -1,7 +1,19 @@
 
+order_ready_time = Time.now + 65
+
+pp order_ready_time
+puts order_ready_time
+
+while Time.now < @order_ready_time
+  t = Time.at(ready.to_i - Time.now.to_i)
+  p t.strftime('%H:%M:%S')
+  sleep 1
+end
+
+=begin
 a = [1,2,3,4,5]
 pp 1.include?(1)
-=begin
+
 order = []
 
 puts "What veggies would you like to add?"

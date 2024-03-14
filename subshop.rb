@@ -6,7 +6,7 @@ class Subshop
   def initialize
     @name = "No orders in yet"
     @order = []
-    @order_ready_time = "00:00:00"
+    @order_ready_time = nil
   end
 
   def run      #starts program
@@ -210,7 +210,7 @@ class Subshop
     case answer
     when 1
       set_order_ready_time
-      puts "\n\nAwesome your order was sent to the kitchen.\nIt will be ready at #{@order_ready_time}"
+      puts "\n\nAwesome your order was sent to the kitchen.\nIt will be ready at #{set_order_ready_time}"
     else
       puts "\n\nWould you like us to retake your order?"
       puts "1 = Yes"
@@ -230,26 +230,32 @@ class Subshop
     if name == @name
       puts "Your order is: \n #{@order}"
     else
-      "****We have no order under the name #{name}****"
+      puts "****We have no order under the name #{name}****"
       run
     end  
   end  
 
   def set_order_ready_time
-    @order_ready_time == Time.now + 30
+    @order_ready_time == Time.now + 30 #sec
   end 
 
   def order_ready?(name)      #gets name on order then says if order is ready or not (boolean)
-=begin
-      @order_ready_time
-        while Time.now < @order_ready_time
-          t = Time.at(@order_ready_time.to_i - Time.now.to_i)
+    if @order_ready_time == nil
+      puts "****Please place a order first****"
+    elsif name == @name    
+        t = ""
+        if Time.now < @order_ready_time
+          t = Time.at(ready.to_i - Time.now.to_i)
+          time = t
           p t.strftime('%H:%M:%S')
           sleep 1
+          return "Your order will not be ready until #{@order_ready_time} you still have #{1} left"
+        else
+          return "Your order is ready" 
         end
-=end 
-
-    puts "Searching order name..."
+    else
+      puts "****We have no order under the name #{name}****"
+    end
   end
 
   
