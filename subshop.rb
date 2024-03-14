@@ -42,7 +42,7 @@ class Subshop
 
   def place_order      #starts order taking proccess
     puts "\n\nWhat is the name for the order?"
-    @name = gets.chomp.capitalize
+    @name = gets.chomp
     puts "**Name: #{@name}"
     puts "\n\nWould you like a sub or drink?"
     puts "1 = Sub"
@@ -176,7 +176,7 @@ class Subshop
   end
   
   def add_drink      #stores custumer drink order in @order
-      puts "What drink would you like? (We only serve large sizes)"
+      puts "\n\nWhat drink would you like? (We only serve large sizes)"
       puts "1 = Coke"
       puts "2 = Sprite"
       puts "3 = Lemonade"
@@ -196,7 +196,7 @@ class Subshop
         @order.push("No Drink")
       end
 
-      puts "Order: #{@order}"
+      #puts "Order: #{@order}"
       order_correct?
   end
 
@@ -210,7 +210,8 @@ class Subshop
     case answer
     when 1
       set_order_ready_time
-      puts "\n\nAwesome your order was sent to the kitchen.\nIt will be ready at #{set_order_ready_time}"
+      puts "\n\n****Awesome your order was sent to the kitchen.\nIt will be ready at #{@order_ready_time}****"
+      run
     else
       puts "\n\nWould you like us to retake your order?"
       puts "1 = Yes"
@@ -221,22 +222,30 @@ class Subshop
         @order = []
         place_order
       else
-        "Sorry for the error. Have a nice day."  
+        puts "Sorry for the error. Have a nice day."  
+        run
       end 
     end  
   end  
 
   def repeat_order(name)      #gets name on order then prints @order
     if name == @name
+      if @order != []
       puts "Your order is: \n #{@order}"
+      run
+      else 
+        puts "****We have no order under the name #{name}****"
+        run
+      end
     else
-      puts "****We have no order under the name #{name}****"
+      puts "****We have no order under that name****"
       run
     end  
   end  
 
   def set_order_ready_time
-    @order_ready_time == Time.now + 30 #sec
+    @order_ready_time = Time.now + 30 #sec
+    return "#{@order_ready_time}"
   end 
 
   def order_ready?(name)      #gets name on order then says if order is ready or not (boolean)
