@@ -47,7 +47,7 @@ class Subshop
     puts "\n\nWould you like a sub or drink?"
     puts "1 = Sub"
     puts "2 = Drink"
-    puts "3 = Exit"
+    puts "3 = Back"
     puts "Please enter a corresponding number:"
 
     choice = gets.chomp.to_i
@@ -56,8 +56,11 @@ class Subshop
       add_sub
     when 2
       add_drink
+    when 3
+      run   
     else
       puts "\n\n****INPUT NOT VALID. PLEASE TRY AGAIN!****"
+      place_order
     end 
   end
 
