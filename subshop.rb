@@ -161,23 +161,43 @@ class Subshop
         end 
       end
       #puts "1:#{count1}, 2:#{count2}, 3:#{count3}, 4:#{count4}, 5:#{count5}, 6:#{count6}, 7:#{count7}, 8:#{count8}, 9:#{count9}"
-      puts "Order: #{@order}"
 
       puts "\n\nWould you like to add a drink?"
       puts "1 = Yes"
       puts "2 = No"
       puts "Please enter a corresponding number:"
       answer = gets.chomp.to_i
-
       if answer == 1
         add_drink
       else  
+        @order.push("No Drink")
         order_correct?
       end
   end
   
   def add_drink      #stores custumer drink order in @order
-    
+      puts "What drink would you like? (We only serve large sizes)"
+      puts "1 = Coke"
+      puts "2 = Sprite"
+      puts "3 = Lemonade"
+      puts "4 = Water"
+      puts "5 = None"
+      puts "Please enter a corresponding number:"
+      drink = gets.chomp.to_i
+      if drink == 1
+        @order.push("Drink: Coke")
+      elsif drink == 2 
+        @order.push("Drink: Sprite")
+      elsif drink == 3
+        @order.push("Drink: Lemonade")
+      elsif drink == 4 
+        @order.push("Drink: Water")
+      else 
+        @order.push("No Drink")
+      end
+
+      puts "Order: #{@order}"
+      order_correct?
   end
 
   def order_correct?      #gets name on order then prints @order
