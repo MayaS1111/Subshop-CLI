@@ -1,6 +1,6 @@
 
 a = [1,2,3,4,5]
-a.include?(2)
+pp 1.include?(1)
 =begin
 order = []
 
