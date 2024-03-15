@@ -13,8 +13,8 @@ class Subshop
     puts "\n\nWelcome to Maya's Subshop!"
     puts "Would you like to: "
     puts "1 = Place an order"
-    puts "2 = Repeat order"
-    puts "3 = Check on order"
+    puts "2 = Get order repeated"
+    puts "3 = Check to see if order if ready"
     puts "4 = Exit"
     puts "Please enter a corresponding number:"
 
@@ -46,7 +46,7 @@ class Subshop
     puts "**Name: #{@name}"
     puts "\n\nWould you like a sub or drink?"
     puts "1 = Sub"
-    puts "2 = Drink"
+    puts "2 = Drink (If you want a drink but no Sub)"
     puts "3 = Back"
     puts "Please enter a corresponding number:"
 
