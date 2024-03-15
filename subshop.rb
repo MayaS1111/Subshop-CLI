@@ -252,7 +252,7 @@ class Subshop
     @order_ready_time = Time.now + 30 #sec
   end 
 
-  def order_ready?(name)      #gets name on order then says if order is ready or not (boolean)
+  def order_ready?(name)      #gets name on order then says if order is ready or not 
     if @order_ready_time == nil
       puts "****Please place a order first****"
       run
