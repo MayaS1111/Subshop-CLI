@@ -21,7 +21,6 @@ class Subshop
     puts "Please enter a corresponding number:"
 
     choice = gets.chomp.to_i
-    #puts "**Choice: #{choice}"
     case choice
     when 1     #Place order
       place_order
@@ -45,7 +44,6 @@ class Subshop
   def place_order      #starts order taking proccess
     puts "\n\nWhat is the name for the order?"
     @name = gets.chomp
-    puts "**Name: #{@name}"
     puts "\n\nWould you like a sub or drink?"
     puts "1 = Sub"
     puts "2 = Drink (If you want a drink but no Sub)"
@@ -121,7 +119,6 @@ class Subshop
         v = v.to_i
         veggie_array.push(v)
       end  
-      pp veggie_array
 
       count1 = 0
       count2 = 0
@@ -165,7 +162,6 @@ class Subshop
         else
         end 
       end
-      #puts "1:#{count1}, 2:#{count2}, 3:#{count3}, 4:#{count4}, 5:#{count5}, 6:#{count6}, 7:#{count7}, 8:#{count8}, 9:#{count9}"
 
       puts "\n\nWould you like to add a drink?"
       puts "1 = Yes"
