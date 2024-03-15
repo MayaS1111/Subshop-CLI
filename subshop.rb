@@ -1,3 +1,5 @@
+#Subshop class
+
 class Subshop
   attr_accessor :name
   attr_reader :order
