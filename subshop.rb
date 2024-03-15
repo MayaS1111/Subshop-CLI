@@ -9,11 +9,11 @@ class Subshop
     @name = ""
     @order = []
     @order_ready_time = nil
+    puts "\n\nWelcome to Maya's Subshop!"
   end
 
   def run      #starts program
-    puts "\n\nWelcome to Maya's Subshop!"
-    puts "Would you like to: "
+    puts "\n\nWould you like to: "
     puts "1 = Place an order"
     puts "2 = Get order repeated"
     puts "3 = Check to see if order if ready"
