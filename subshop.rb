@@ -274,4 +274,12 @@ class Subshop
   def exit      #stops program
     puts "\n\nBye, have a nice day!\n\n"
   end
+
+  def get_order_length
+    return @order.length
+  end
+
+  def get_name_on_order
+    return @name
+  end
 end
