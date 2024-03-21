@@ -270,7 +270,6 @@ class Subshop
     end
   end
 
-
   def exit      #stops program
     puts "\n\nBye, have a nice day!\n\n"
   end
